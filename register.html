@@ -1,0 +1,905 @@
+mo<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NZAMA INVESTMENT | Register</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#050b18;
+    --navy2:#08152b;
+    --card:#0b1830;
+    --gold:#d4af37;
+    --gold2:#f2d477;
+    --purple:#7b35ff;
+    --blue:#2e6cff;
+    --white:#ffffff;
+    --muted:#aab6ca;
+    --green:#39d98a;
+    --red:#ff5d6c;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--white);
+    background:
+        radial-gradient(circle at 15% 10%,rgba(123,53,255,.22),transparent 30%),
+        radial-gradient(circle at 85% 20%,rgba(46,108,255,.18),transparent 28%),
+        linear-gradient(135deg,var(--navy),var(--navy2));
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.header{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(5,11,24,.85);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:900;
+    background:linear-gradient(135deg,var(--purple),var(--blue),var(--gold));
+}
+
+.logo-text span{
+    display:block;
+}
+
+.logo-main{
+    font-size:18px;
+}
+
+.logo-sub{
+    font-size:10px;
+    color:var(--gold2);
+    letter-spacing:2px;
+    margin-top:3px;
+}
+
+.back{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.back:hover{
+    color:var(--gold2);
+}
+
+.container{
+    width:100%;
+    max-width:620px;
+    margin:45px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:rgba(11,24,48,.94);
+    border:1px solid rgba(212,175,55,.20);
+    border-radius:22px;
+    padding:35px;
+    box-shadow:0 25px 70px rgba(0,0,0,.4);
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.heading h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.heading h1 span{
+    background:linear-gradient(90deg,var(--gold),var(--gold2));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.heading p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:13px;
+    color:#dce4f3;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px 15px;
+    border-radius:11px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#071225;
+    color:white;
+    outline:none;
+    font-size:14px;
+    transition:.2s;
+}
+
+textarea{
+    min-height:95px;
+    resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(212,175,55,.08);
+}
+
+select option{
+    background:#071225;
+    color:white;
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-right:55px;
+}
+
+.toggle{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    border:0;
+    background:none;
+    color:var(--gold2);
+    cursor:pointer;
+    font-size:13px;
+}
+
+.terms{
+    margin-top:22px;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.5;
+}
+
+.terms input{
+    width:auto;
+    margin-top:3px;
+    accent-color:var(--gold);
+}
+
+.submit{
+    width:100%;
+    border:0;
+    margin-top:24px;
+    padding:16px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    color:#080d18;
+    background:linear-gradient(90deg,var(--gold),var(--gold2));
+    transition:.25s;
+}
+
+.submit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(212,175,55,.2);
+}
+
+.submit:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.message{
+    display:none;
+    padding:12px 14px;
+    border-radius:10px;
+    margin-bottom:18px;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.message.error{
+    display:block;
+    background:rgba(255,93,108,.10);
+    border:1px solid rgba(255,93,108,.3);
+    color:#ff9ba5;
+}
+
+.message.success{
+    display:block;
+    background:rgba(57,217,138,.10);
+    border:1px solid rgba(57,217,138,.3);
+    color:#7af0b5;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:22px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.login-link a{
+    color:var(--gold2);
+    font-weight:bold;
+}
+
+.footer{
+    text-align:center;
+    color:#75839a;
+    font-size:12px;
+    padding:20px;
+}
+
+@media(max-width:650px){
+    .header{
+        padding:0 20px;
+    }
+
+    .back{
+        font-size:12px;
+    }
+
+    .container{
+        margin:25px auto;
+    }
+
+    .card{
+        padding:24px 18px;
+        border-radius:18px;
+    }
+
+    .heading h1{
+        font-size:27px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        <div class="logo-icon">N</div>
+
+        <div class="logo-text">
+            <span class="logo-main">NZAMA</span>
+            <span class="logo-sub">INVESTMENT</span>
+        </div>
+    </a>
+
+    <a href="index.html" class="back">← Back to Home</a>
+
+</header>
+
+
+<main class="container">
+
+<div class="card">
+
+    <div class="heading">
+        <h1>Create Your <span>Account</span></h1>
+
+        <p>
+            Register your client account to access the
+            NZAMA INVESTMENT client portal.
+        </p>
+    </div>
+
+
+    <div id="message" class="message"></div>
+
+
+    <form id="registerForm">
+
+        <div class="form-grid">
+
+            <div class="full">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+
+            <div>
+                <label for="gender">Gender</label>
+
+                <select id="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                    <option value="Prefer not to say">
+                        Prefer not to say
+                    </option>
+                </select>
+            </div>
+
+
+            <div>
+                <label for="phone">Mobile Number</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="e.g. 0712345678"
+                    autocomplete="tel"
+                    required
+                >
+            </div>
+
+
+            <div class="full">
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+
+            <div class="full">
+                <label for="address">Address</label>
+
+                <textarea
+                    id="address"
+                    placeholder="Enter your residential address"
+                    autocomplete="street-address"
+                    required
+                ></textarea>
+            </div>
+
+
+            <div>
+                <label for="password">Password</label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Minimum 6 characters"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle"
+                        onclick="togglePassword('password',this)"
+                    >
+                        Show
+                    </button>
+
+                </div>
+            </div>
+
+
+            <div>
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Repeat password"
+                        autocomplete="new-password"
+                        minlength="6"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle"
+                        onclick="togglePassword('confirmPassword',this)"
+                    >
+                        Show
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <label class="terms">
+
+            <input
+                type="checkbox"
+                id="terms"
+                required
+            >
+
+            <span>
+                I confirm that the information I provide is accurate
+                and I agree to the terms applicable to my client account.
+            </span>
+
+        </label>
+
+
+        <button
+            type="submit"
+            class="submit"
+            id="registerBtn"
+        >
+            Create Account →
+        </button>
+
+    </form>
+
+
+    <div class="login-link">
+        Already have an account?
+        <a href="login.html">Login here</a>
+    </div>
+
+</div>
+
+</main>
+
+
+<div class="footer">
+    © 2026 NZAMA INVESTMENT. All rights reserved.
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    updateProfile
+}
+from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+import {
+    getDatabase,
+    ref,
+    set,
+    serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+
+/* =========================
+   FIREBASE CONFIGURATION
+========================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyD7McDVKP5QmZlcVBtmixK3Er9288rbeww",
+
+    authDomain:
+        "nzama-investment-2026.firebaseapp.com",
+
+    databaseURL:
+        "https://nzama-investment-2026-default-rtdb.firebaseio.com",
+
+    projectId:
+        "nzama-investment-2026",
+
+    storageBucket:
+        "nzama-investment-2026.firebasestorage.app",
+
+    messagingSenderId:
+        "1050465478535",
+
+    appId:
+        "1:1050465478535:web:dbdee6dfe598b644399522"
+};
+
+
+/* =========================
+   INITIALIZE FIREBASE
+========================= */
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getDatabase(app);
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const form =
+    document.getElementById("registerForm");
+
+const message =
+    document.getElementById("message");
+
+const registerBtn =
+    document.getElementById("registerBtn");
+
+
+/* =========================
+   MESSAGE FUNCTION
+========================= */
+
+function showMessage(text,type){
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+
+window.togglePassword = function(id,button){
+
+    const input =
+        document.getElementById(id);
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        button.textContent = "Hide";
+
+    }else{
+
+        input.type = "password";
+
+        button.textContent = "Show";
+
+    }
+
+};
+
+
+/* =========================
+   REGISTRATION
+========================= */
+
+form.addEventListener("submit",async function(e){
+
+    e.preventDefault();
+
+
+    const name =
+        document.getElementById("name")
+        .value.trim();
+
+    const gender =
+        document.getElementById("gender")
+        .value;
+
+    const email =
+        document.getElementById("email")
+        .value.trim();
+
+    const phone =
+        document.getElementById("phone")
+        .value.trim();
+
+    const address =
+        document.getElementById("address")
+        .value.trim();
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword")
+        .value;
+
+    const terms =
+        document.getElementById("terms")
+        .checked;
+
+
+    /* =========================
+       VALIDATION
+    ========================= */
+
+    if(!name || !gender || !email ||
+       !phone || !address){
+
+        showMessage(
+            "Please complete all required fields.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(password.length < 6){
+
+        showMessage(
+            "Password must contain at least 6 characters.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(password !== confirmPassword){
+
+        showMessage(
+            "The passwords do not match.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(!terms){
+
+        showMessage(
+            "Please accept the terms before registering.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    /* =========================
+       DISABLE BUTTON
+    ========================= */
+
+    registerBtn.disabled = true;
+
+    registerBtn.textContent =
+        "Creating Account...";
+
+
+    try{
+
+        /* =========================
+           CREATE FIREBASE ACCOUNT
+        ========================= */
+
+        const credential =
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+        const user =
+            credential.user;
+
+
+        /* =========================
+           SAVE DISPLAY NAME
+        ========================= */
+
+        await updateProfile(user,{
+            displayName:name
+        });
+
+
+        /* =========================
+           SAVE CLIENT DATABASE RECORD
+        ========================= */
+
+        await set(
+            ref(db,"users/" + user.uid),
+            {
+
+                uid:user.uid,
+
+                name:name,
+
+                gender:gender,
+
+                email:email,
+
+                phone:phone,
+
+                address:address,
+
+                administrator:"",
+
+                investmentDate:"",
+
+                plan:"",
+
+                term:"",
+
+                accountStatus:"Active",
+
+                portfolio:{
+
+                    totalInvested:0,
+
+                    profit:0,
+
+                    currentValue:0
+
+                },
+
+                transactions:{},
+
+                createdAt:serverTimestamp()
+
+            }
+        );
+
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
+        showMessage(
+            "Registration successful. Opening your client dashboard...",
+            "success"
+        );
+
+
+        setTimeout(function(){
+
+            window.location.href =
+                "dashboard.html";
+
+        },1000);
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        let errorMessage =
+            "Registration failed. Please try again.";
+
+
+        switch(error.code){
+
+            case "auth/email-already-in-use":
+
+                errorMessage =
+                    "This email address is already registered. Please login instead.";
+
+                break;
+
+
+            case "auth/invalid-email":
+
+                errorMessage =
+                    "Please enter a valid email address.";
+
+                break;
+
+
+            case "auth/weak-password":
+
+                errorMessage =
+                    "The password is too weak. Use at least 6 characters.";
+
+                break;
+
+
+            case "auth/network-request-failed":
+
+                errorMessage =
+                    "Network error. Please check your internet connection.";
+
+                break;
+
+
+            case "auth/operation-not-allowed":
+
+                errorMessage =
+                    "Email/password registration is not enabled in Firebase Authentication.";
+
+                break;
+
+        }
+
+
+        showMessage(
+            errorMessage,
+            "error"
+        );
+
+
+        registerBtn.disabled = false;
+
+        registerBtn.textContent =
+            "Create Account →";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

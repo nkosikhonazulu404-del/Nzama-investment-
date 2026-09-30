@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NZAMA INVESTMENT | Investment & Financial Services</title>
+
+<meta name="description"
+content="NZAMA INVESTMENT - Investment information, client registration and portfolio services.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#050b18;
+    --navy2:#08152b;
+    --blue:#102b57;
+    --gold:#d4af37;
+    --gold2:#f2d477;
+    --purple:#7b35ff;
+    --purple2:#a86cff;
+    --white:#ffffff;
+    --muted:#aab6ca;
+    --card:#0b1830;
+    --green:#39d98a;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    color:var(--white);
+    background:
+        radial-gradient(circle at 15% 10%,rgba(123,53,255,.20),transparent 30%),
+        radial-gradient(circle at 85% 20%,rgba(37,110,255,.15),transparent 28%),
+        linear-gradient(135deg,var(--navy),var(--navy2));
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+/* TOP TICKER */
+
+.ticker{
+    width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+    background:#030711;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    color:var(--gold2);
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.ticker-track{
+    display:inline-block;
+    padding:10px 0;
+    animation:ticker 35s linear infinite;
+}
+
+@keyframes ticker{
+    from{
+        transform:translateX(100%);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(16px);
+    background:rgba(5,11,24,.88);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-symbol{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    font-size:22px;
+    font-weight:900;
+    background:linear-gradient(135deg,var(--purple),#277cff,var(--gold));
+    box-shadow:0 8px 25px rgba(123,53,255,.3);
+}
+
+.logo-text{
+    line-height:1.05;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:17px;
+    letter-spacing:2px;
+}
+
+.logo-text span{
+    font-size:9px;
+    color:var(--gold2);
+    letter-spacing:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#dce5f5;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold2);
+}
+
+.nav-buttons{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    min-height:46px;
+    padding:0 20px;
+    border-radius:12px;
+    font-weight:800;
+    font-size:14px;
+    transition:.25s;
+    border:1px solid transparent;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-outline{
+    border-color:rgba(255,255,255,.18);
+    background:rgba(255,255,255,.04);
+}
+
+.btn-outline:hover{
+    border-color:var(--gold);
+}
+
+.btn-gold{
+    color:#101010;
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    box-shadow:0 10px 30px rgba(212,175,55,.2);
+}
+
+/* HERO */
+
+.hero{
+    padding:95px 0 80px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:65px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 14px;
+    border-radius:999px;
+    background:rgba(123,53,255,.12);
+    border:1px solid rgba(168,108,255,.3);
+    color:#d6c5ff;
+    font-size:12px;
+    letter-spacing:1.5px;
+    margin-bottom:22px;
+}
+
+.badge::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 10px var(--green);
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,70px);
+    line-height:1.02;
+    letter-spacing:-2px;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,var(--gold2),var(--gold),#fff0a8);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.8;
+    max-width:650px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+}
+
+.hero-note{
+    margin-top:20px;
+    color:#8391a8;
+    font-size:12px;
+}
+
+/* MARKET CARD */
+
+.market-card{
+    position:relative;
+    padding:26px;
+    border-radius:24px;
+    background:
+        linear-gradient(145deg,rgba(16,43,87,.75),rgba(11,24,48,.92));
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    overflow:hidden;
+}
+
+.market-card::before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:rgba(123,53,255,.18);
+    filter:blur(70px);
+    top:-80px;
+    right:-60px;
+}
+
+.market-top{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.market-title{
+    font-size:18px;
+    font-weight:800;
+}
+
+.live{
+    color:var(--green);
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+.chart{
+    position:relative;
+    height:230px;
+    border-radius:18px;
+    overflow:hidden;
+    background:
+        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:46px 46px;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.chart svg{
+    width:100%;
+    height:100%;
+}
+
+.market-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:14px;
+}
+
+.stat{
+    padding:15px;
+    border-radius:15px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.stat small{
+    display:block;
+    color:#8290a7;
+    margin-bottom:5px;
+}
+
+.stat strong{
+    font-size:15px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:85px 0;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 45px;
+}
+
+.eyebrow{
+    color:var(--gold2);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.section-heading h2{
+    font-size:clamp(32px,4vw,48px);
+    margin-bottom:14px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    padding:27px;
+    border-radius:20px;
+    background:rgba(11,24,48,.78);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(212,175,55,.35);
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    background:linear-gradient(135deg,rgba(123,53,255,.25),rgba(212,175,55,.15));
+    border:1px solid rgba(255,255,255,.08);
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:stretch;
+}
+
+.about-box{
+    padding:35px;
+    border-radius:22px;
+    background:rgba(11,24,48,.7);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.about-box h2{
+    font-size:35px;
+    margin-bottom:18px;
+}
+
+.about-box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:16px;
+}
+
+.check{
+    display:flex;
+    gap:10px;
+    margin:14px 0;
+    color:#dfe7f5;
+}
+
+.check b{
+    color:var(--green);
+}
+
+/* PLANS */
+
+.plans{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.plan{
+    padding:25px 20px;
+    border-radius:20px;
+    background:rgba(11,24,48,.8);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.plan.featured{
+    border-color:var(--gold);
+    box-shadow:0 20px 55px rgba(212,175,55,.1);
+}
+
+.plan-tag{
+    display:inline-block;
+    padding:6px 9px;
+    border-radius:999px;
+    background:rgba(212,175,55,.12);
+    color:var(--gold2);
+    font-size:10px;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+.plan h3{
+    margin-bottom:8px;
+}
+
+.plan p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.6;
+    min-height:65px;
+}
+
+.plan ul{
+    list-style:none;
+    margin:18px 0;
+}
+
+.plan li{
+    padding:8px 0;
+    color:#c8d2e3;
+    font-size:13px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.plan li::before{
+    content:"✓";
+    color:var(--green);
+    margin-right:8px;
+}
+
+/* HOW */
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.step{
+    text-align:center;
+    padding:25px 18px;
+}
+
+.step-number{
+    width:55px;
+    height:55px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-weight:900;
+    color:#111;
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+}
+
+.step h3{
+    margin-bottom:9px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* RISK */
+
+.risk{
+    padding:24px;
+    border-radius:18px;
+    background:rgba(212,175,55,.08);
+    border:1px solid rgba(212,175,55,.25);
+}
+
+.risk strong{
+    color:var(--gold2);
+}
+
+.risk p{
+    color:#c7cfdd;
+    font-size:13px;
+    line-height:1.7;
+    margin-top:7px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding:60px 25px;
+    border-radius:28px;
+    background:
+        radial-gradient(circle at 50% 0,rgba(123,53,255,.25),transparent 45%),
+        linear-gradient(135deg,#0b1830,#071225);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.cta h2{
+    font-size:clamp(30px,5vw,48px);
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:var(--muted);
+    max-width:650px;
+    margin:0 auto 25px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    padding:45px 0 25px;
+    border-top:1px solid rgba(255,255,255,.08);
+    margin-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-brand p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+    max-width:400px;
+    margin-top:12px;
+}
+
+.footer-col h4{
+    margin-bottom:14px;
+    color:var(--gold2);
+}
+
+.footer-col a{
+    display:block;
+    color:var(--muted);
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-col a:hover{
+    color:var(--white);
+}
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,.06);
+    margin-top:30px;
+    padding-top:20px;
+    color:#758198;
+    font-size:12px;
+    text-align:center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .services{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .plans{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav{
+        min-height:65px;
+    }
+
+    .logo-symbol{
+        width:38px;
+        height:38px;
+    }
+
+    .logo-text strong{
+        font-size:15px;
+    }
+
+    .nav-buttons .btn-outline{
+        display:none;
+    }
+
+    .nav-buttons .btn{
+        min-height:40px;
+        padding:0 14px;
+        font-size:12px;
+    }
+
+    .hero{
+        padding:65px 0 50px;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    section{
+        padding:65px 0;
+    }
+
+    .services,
+    .plans,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .market-card{
+        padding:18px;
+    }
+
+    .chart{
+        height:190px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MARKET TICKER -->
+<div class="ticker">
+    <div class="ticker-track">
+        NZAMA INVESTMENT • MARKET INFORMATION • CRYPTOCURRENCY • REAL ESTATE • DIGITAL ASSETS •
+        MARKET PRICES MAY CHANGE • INVESTMENT RISK APPLIES • NZAMA INVESTMENT •
+        MARKET INFORMATION • CRYPTOCURRENCY • REAL ESTATE • DIGITAL ASSETS •
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            <div class="logo-symbol">N</div>
+
+            <div class="logo-text">
+                <strong>NZAMA</strong>
+                <span>INVESTMENT</span>
+            </div>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#plans">Plans</a>
+            <a href="#how">How It Works</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-gold">Register</a>
+        </div>
+
+    </div>
+</header>
+
+<!-- HERO -->
+<main id="home">
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+    <div>
+
+        <div class="badge">
+            NZAMA INVESTMENT PLATFORM
+        </div>
+
+        <h1>
+            Build Your<br>
+            Financial Future<br>
+            With <span>Nzama Investment</span>
+        </h1>
+
+        <p>
+            Explore investment opportunities across digital assets,
+            real estate and other financial markets through a structured
+            client platform designed to help you monitor your account
+            information and portfolio activity.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="register.html" class="btn btn-gold">
+                Create Account →
+            </a>
+
+            <a href="#how" class="btn btn-outline">
+                Learn More
+            </a>
+        </div>
+
+        <div class="hero-note">
+            Investment values and market prices can change. Investment risk applies.
+        </div>
+
+    </div>
+
+    <!-- MARKET OVERVIEW -->
+    <div class="market-card">
+
+        <div class="market-top">
+            <div class="market-title">
+                Market Overview
+            </div>
+
+            <div class="live">
+                ● LIVE DATA
+            </div>
+        </div>
+
+        <div class="chart">
+
+            <svg viewBox="0 0 600 260"
+                 preserveAspectRatio="none">
+
+                <defs>
+                    <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stop-color="#7b35ff" stop-opacity=".30"/>
+                        <stop offset="100%" stop-color="#7b35ff" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+
+                <path
+                    d="M0 215
+                       C50 200 65 185 105 192
+                       C145 200 160 145 205 157
+                       C250 170 270 105 310 125
+                       C350 145 370 78 415 92
+                       C455 104 480 55 515 72
+                       C550 89 575 38 600 48
+                       L600 260
+                       L0 260 Z"
+                    fill="url(#area)"
+                />
+
+                <path
+                    d="M0 215
+                       C50 200 65 185 105 192
+                       C145 200 160 145 205 157
+                       C250 170 270 105 310 125
+                       C350 145 370 78 415 92
+                       C455 104 480 55 515 72
+                       C550 89 575 38 600 48"
+                    fill="none"
+                    stroke="#f2d477"
+                    stroke-width="4"
+                    vector-effect="non-scaling-stroke"
+                />
+
+                <circle cx="600" cy="48" r="7" fill="#39d98a"/>
+            </svg>
+
+        </div>
+
+        <div class="market-stats">
+
+            <div class="stat">
+                <small>Digital Assets</small>
+                <strong>Market Data</strong>
+            </div>
+
+            <div class="stat">
+                <small>Real Estate</small>
+                <strong>Portfolio</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">ABOUT NZAMA</div>
+
+        <h2>A Structured Investment Platform</h2>
+
+        <p>
+            NZAMA INVESTMENT provides a digital environment where
+            clients can register, access their accounts and view
+            investment-related information.
+        </p>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-box">
+
+            <h2>Designed Around Your Account</h2>
+
+            <p>
+                Our client portal brings important account information
+                into one place, helping clients view their profile,
+                portfolio information and account activity.
+            </p>
+
+            <div class="check">
+                <b>✓</b>
+                Secure client account access
+            </div>
+
+            <div class="check">
+                <b>✓</b>
+                Portfolio information
+            </div>
+
+            <div class="check">
+                <b>✓</b>
+                Account and transaction records
+            </div>
+
+        </div>
+
+        <div class="about-box">
+
+            <h2>Digital Access</h2>
+
+            <p>
+                Access your account through a modern, responsive
+                website designed for both desktop and mobile devices.
+            </p>
+
+            <p>
+                Registered clients can log in to their secure account
+                and view information associated with their Firebase
+                account.
+            </p>
+
+            <a href="register.html" class="btn btn-gold">
+                Get Started →
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+
+<div class="container">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">OUR SERVICES</div>
+
+        <h2>Investment Services</h2>
+
+        <p>
+            Explore the areas supported by the NZAMA INVESTMENT platform.
+        </p>
+
+    </div>
+
+    <div class="services">
+
+        <div class="card">
+
+            <div class="icon">₿</div>
+
+            <h3>Digital Assets</h3>
+
+            <p>
+                Information and portfolio monitoring relating to
+                digital asset markets.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">◆</div>
+
+            <h3>Real Estate</h3>
+
+            <p>
+                Investment information and portfolio records
+                associated with real-estate opportunities.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">↗</div>
+
+            <h3>Portfolio Tracking</h3>
+
+            <p>
+                Clients can use the secure portal to view account
+                information, transactions, documents and updates.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- PLANS -->
+<section id="plans">
+
+<div class="container">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">PLATFORM PLANS</div>
+
+        <h2>Choose Your Investment Plan</h2>
+
+        <p>
+            Plan information should be reviewed carefully before
+            making any investment decision.
+        </p>
+
+    </div>
+
+    <div class="plans">
+
+        <div class="plan">
+
+            <div class="plan-tag">STARTER</div>
+
+            <h3>Starter Plan</h3>
+
+            <p>
+                Designed for clients beginning to explore investment
+                opportunities.
+            </p>
+
+            <ul>
+                <li>Client account</li>
+                <li>Portfolio access</li>
+                <li>Account information</li>
+            </ul>
+
+            <a href="register.html" class="btn btn-outline">
+                Register
+            </a>
+
+        </div>
+
+        <div class="plan featured">
+
+            <div class="plan-tag">POPULAR</div>
+
+            <h3>Standard Growth</h3>
+
+            <p>
+                A structured plan category for clients seeking
+                portfolio monitoring.
+            </p>
+
+            <ul>
+                <li>Secure dashboard</li>
+                <li>Portfolio tracking</li>
+                <li>Account records</li>
+            </ul>
+
+            <a href="register.html" class="btn btn-gold">
+                Register
+            </a>
+
+        </div>
+
+        <div class="plan">
+
+            <div class="plan-tag">GROWTH</div>
+
+            <h3>Growth Plan</h3>
+
+            <p>
+                Provides access to additional investment-related
+                account information.
+            </p>
+
+            <ul>
+                <li>Client dashboard</li>
+                <li>Portfolio information</li>
+                <li>Account monitoring</li>
+            </ul>
+
+            <a href="register.html" class="btn btn-outline">
+                Register
+            </a>
+
+        </div>
+
+        <div class="plan">
+
+            <div class="plan-tag">PREMIUM</div>
+
+            <h3>Premium Plan</h3>
+
+            <p>
+                An advanced plan category subject to applicable
+                terms and conditions.
+            </p>
+
+            <ul>
+                <li>Secure account</li>
+                <li>Portfolio tracking</li>
+                <li>Client records</li>
+            </ul>
+
+            <a href="register.html" class="btn btn-outline">
+                Register
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+
+<div class="container">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">HOW IT WORKS</div>
+
+        <h2>Simple Client Journey</h2>
+
+        <p>
+            The platform is designed to provide a straightforward
+            path from registration to account access.
+        </p>
+
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Register</h3>
+            <p>
+                Create your client account using the registration page.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Login</h3>
+            <p>
+                Sign in securely using your registered email and password.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>View Account</h3>
+            <p>
+                Access your profile and portfolio information through
+                the client dashboard.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Monitor</h3>
+            <p>
+                Review available account information, records and updates.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- RISK NOTICE -->
+<section>
+
+<div class="container">
+
+    <div class="risk">
+
+        <strong>Investment Risk Notice</strong>
+
+        <p>
+            Investment products and markets can involve risk, and values
+            may increase or decrease. Past performance does not guarantee
+            future results. Clients should review applicable terms,
+            fees, risks and documentation before making an investment
+            decision.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+<section id="contact">
+
+<div class="container">
+
+    <div class="cta">
+
+        <h2>Ready to Access Your Account?</h2>
+
+        <p>
+            Create your NZAMA INVESTMENT client account or sign in to
+            your existing account.
+        </p>
+
+        <div class="hero-buttons" style="justify-content:center;">
+
+            <a href="register.html" class="btn btn-gold">
+                Create Account →
+            </a>
+
+            <a href="login.html" class="btn btn-outline">
+                Client Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+
+                <div class="logo-symbol">N</div>
+
+                <div class="logo-text">
+                    <strong>NZAMA</strong>
+                    <span>INVESTMENT</span>
+                </div>
+
+            </div>
+
+            <p>
+                Investment information, client registration and
+                portfolio services through a modern digital platform.
+            </p>
+
+        </div>
+
+        <div class="footer-col">
+
+            <h4>Platform</h4>
+
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#plans">Plans</a>
+            <a href="#how">How It Works</a>
+
+        </div>
+
+        <div class="footer-col">
+
+            <h4>Account</h4>
+
+            <a href="register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="dashboard.html">Client Dashboard</a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 NZAMA INVESTMENT. All rights reserved.
+    </div>
+
+</div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NZAMA INVESTMENT | Login</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --navy:#050b18;
+    --navy2:#08152b;
+    --card:#0b1830;
+    --gold:#d4af37;
+    --gold2:#f2d477;
+    --purple:#7b35ff;
+    --blue:#2764d8;
+    --white:#fff;
+    --muted:#aab6ca;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    font-family:Inter,Arial,sans-serif;
+    color:white;
+
+    background:
+        radial-gradient(circle at 10% 10%,rgba(123,53,255,.25),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(39,100,216,.2),transparent 30%),
+        linear-gradient(135deg,var(--navy),var(--navy2));
+}
+
+.card{
+    width:100%;
+    max-width:450px;
+    background:rgba(11,24,48,.97);
+    border:1px solid rgba(212,175,55,.22);
+    border-radius:22px;
+    padding:35px;
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:28px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:900;
+    background:linear-gradient(135deg,var(--purple),var(--blue),var(--gold));
+}
+
+.logo-text{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo-text span{
+    display:block;
+    font-size:10px;
+    color:var(--gold2);
+    letter-spacing:4px;
+}
+
+h1{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:28px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-size:13px;
+}
+
+input{
+    width:100%;
+    padding:14px 15px;
+    border-radius:11px;
+    border:1px solid #263a5c;
+    background:#071225;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus{
+    border-color:var(--gold);
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:11px;
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    color:#111;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:.6;
+}
+
+.message{
+    display:none;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:18px;
+    font-size:13px;
+}
+
+.error{
+    background:rgba(255,102,117,.1);
+    color:#ff9da8;
+    border:1px solid rgba(255,102,117,.3);
+}
+
+.bottom{
+    text-align:center;
+    margin-top:22px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.bottom a{
+    color:var(--gold2);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.forgot{
+    display:block;
+    text-align:right;
+    margin-top:-8px;
+    margin-bottom:18px;
+    color:var(--gold2);
+    font-size:12px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="logo">
+        <div class="logo-icon">N</div>
+
+        <div class="logo-text">
+            NZAMA
+            <span>INVESTMENT</span>
+        </div>
+    </div>
+
+    <h1>Client Login</h1>
+
+    <p class="subtitle">
+        Access your secure client dashboard
+    </p>
+
+    <div id="message" class="message"></div>
+
+    <form id="loginForm">
+
+        <div class="form-group">
+            <label>Email Address</label>
+
+            <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+
+            <label>Password</label>
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                required
+            >
+
+        </div>
+
+        <a class="forgot" id="forgotPassword">
+            Forgot password?
+        </a>
+
+        <button id="loginBtn" type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <div class="bottom">
+        Don't have an account?
+        <a href="register.html">Create Account</a>
+    </div>
+
+</div>
+
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+    apiKey:"AIzaSyD7McDVKP5QmZlcVBtmixK3Er9288rbeww",
+
+    authDomain:"nzama-investment-2026.firebaseapp.com",
+
+    databaseURL:
+    "https://nzama-investment-2026-default-rtdb.firebaseio.com",
+
+    projectId:"nzama-investment-2026",
+
+    storageBucket:
+    "nzama-investment-2026.firebasestorage.app",
+
+    messagingSenderId:"1050465478535",
+
+    appId:
+    "1:1050465478535:web:dbdee6dfe598b644399522"
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+
+const form =
+    document.getElementById("loginForm");
+
+const message =
+    document.getElementById("message");
+
+const loginBtn =
+    document.getElementById("loginBtn");
+
+
+function showMessage(text){
+
+    message.textContent = text;
+
+    message.className =
+        "message error";
+
+    message.style.display =
+        "block";
+}
+
+
+form.addEventListener("submit",async(e)=>{
+
+    e.preventDefault();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+
+    loginBtn.disabled = true;
+
+    loginBtn.textContent =
+        "Signing In...";
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+
+        window.location.href =
+            "dashboard.html";
+
+
+    }catch(error){
+
+        console.error(error);
+
+        let msg =
+            "Email or password is incorrect.";
+
+        if(error.code === "auth/user-not-found"){
+            msg = "No account was found with this email.";
+        }
+
+        if(error.code === "auth/wrong-password"){
+            msg = "Incorrect password.";
+        }
+
+        if(error.code === "auth/invalid-credential"){
+            msg = "Incorrect email or password.";
+        }
+
+        showMessage(msg);
+
+        loginBtn.disabled = false;
+
+        loginBtn.textContent =
+            "Login";
+    }
+
+});
+
+
+document
+.getElementById("forgotPassword")
+.addEventListener("click",async()=>{
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    if(!email){
+
+        showMessage(
+            "Enter your email address first."
+        );
+
+        return;
+    }
+
+
+    try{
+
+        await sendPasswordResetEmail(
+            auth,
+            email
+        );
+
+        message.className =
+            "message";
+
+        message.style.display =
+            "block";
+
+        message.style.background =
+            "rgba(57,217,138,.1)";
+
+        message.style.color =
+            "#79eab0";
+
+        message.textContent =
+            "Password reset instructions have been sent to your email.";
+
+    }catch(error){
+
+        showMessage(
+            "Could not send the password reset email."
+        );
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
